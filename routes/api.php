@@ -25,7 +25,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/checklists', [ChecklistController::class, 'index']);
     Route::post('/checklists', [ChecklistController::class, 'store']);
-    Route::get('/checklists/{id}', [ChecklistController::class, 'show']);
     Route::delete('/checklists/{id}', [ChecklistController::class, 'destroy']);
 
     Route::get('/checklist/{checklistId}/item', [ItemController::class, 'index']);
