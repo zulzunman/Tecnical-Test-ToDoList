@@ -72,9 +72,10 @@ class ItemController extends Controller
         ]);
 
         $checklist = $request->user()->checklists()->findOrFail($checklistId);
-        dd($checklist);
 
-        $item = $checklist->items()->findOrFail($itemId);
+        $item = Item::where('id', $itemId)
+                ->where('checklist_id', $checklistId)
+                ->firstOrFail();
 
         $item->update([
             'status' => $request->status,
